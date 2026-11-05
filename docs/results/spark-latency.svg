@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="275" viewBox="0 0 900 275" role="img">
+<title>Spark SQL benchmark median and p95 latency</title>
+<desc>Median latency bars with p95 markers for each workload.</desc>
+<style>text{font-family:Arial,sans-serif;fill:#253247} .grid{stroke:#dbe2ea}.p95{stroke:#18212f;stroke-width:3}</style>
+<text x="20.0" y="29.0" font-size="19" text-anchor="start">Spark SQL on a local Docker runtime</text>
+<text x="20.0" y="52.0" font-size="13" text-anchor="start">Median elapsed time; dark marker = p95. Lower is faster.</text>
+<line class="grid" x1="190.0" y1="66" x2="190.0" y2="224"/>
+<text x="190.0" y="245.0" font-size="12" text-anchor="middle">0</text>
+<line class="grid" x1="318.7" y1="66" x2="318.7" y2="224"/>
+<text x="318.7" y="245.0" font-size="12" text-anchor="middle">0.3</text>
+<line class="grid" x1="447.4" y1="66" x2="447.4" y2="224"/>
+<text x="447.4" y="245.0" font-size="12" text-anchor="middle">0.6</text>
+<line class="grid" x1="576.1" y1="66" x2="576.1" y2="224"/>
+<text x="576.1" y="245.0" font-size="12" text-anchor="middle">0.9</text>
+<text x="176.0" y="85.0" font-size="13" text-anchor="end">simple</text>
+<rect x="190" y="70" width="208.81" height="21" rx="3" fill="#e25a1c"/>
+<line class="p95" x1="453.5" y1="66" x2="453.5" y2="95"/>
+<text x="660.0" y="85.0" font-size="12" text-anchor="start">0.487s median  |  0.614s p95  |  n=10</text>
+<text x="176.0" y="137.0" font-size="13" text-anchor="end">moderate</text>
+<rect x="190" y="122" width="222.40" height="21" rx="3" fill="#e25a1c"/>
+<line class="p95" x1="468.7" y1="118" x2="468.7" y2="147"/>
+<text x="660.0" y="137.0" font-size="12" text-anchor="start">0.518s median  |  0.650s p95  |  n=10</text>
+<text x="176.0" y="189.0" font-size="13" text-anchor="end">complex</text>
+<rect x="190" y="174" width="327.99" height="21" rx="3" fill="#e25a1c"/>
+<line class="p95" x1="650.0" y1="170" x2="650.0" y2="199"/>
+<text x="660.0" y="189.0" font-size="12" text-anchor="start">0.765s median  |  1.072s p95  |  n=10</text>
+<text x="420.0" y="268.0" font-size="12" text-anchor="middle">Elapsed seconds</text>
+</svg>

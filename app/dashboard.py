@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 import sys
 
 import pandas as pd
@@ -10,39 +11,51 @@ sys.path.insert(0, str(PROJECT_ROOT / "src"))
 from lakehousebench.analysis import load_observations, summarize
 
 
-st.set_page_config(page_title="LakehouseBench", layout="wide")
-st.title("LakehouseBench")
-st.caption(
-    "Modern Spark SQL benchmark runner, with the original course results kept "
-    "separate as historical context."
-)
-
-view = st.radio(
-    "View",
-    ["Modern Spark runs", "Historical course results"],
-    horizontal=True,
-)
-
-if view == "Modern Spark runs":
-    result_path = PROJECT_ROOT / "results" / "spark-results.jsonl"
+def render_spark_results(result_path: Path) -> None:
     if not result_path.is_file():
-        st.info(
-            "No Spark runs recorded yet. Start Docker, then run "
-            "`docker compose --profile spark run --build --rm spark-benchmark`."
-        )
+        st.info("No Spark runs recorded yet. Run the benchmark with Docker:")
         st.code(
             "docker compose --profile spark run --build --rm spark-benchmark",
             language="powershell",
         )
-        st.stop()
+        return
 
-    runs = pd.read_json(result_path, lines=True)
+    try:
+        runs = pd.read_json(result_path, lines=True)
+    except FileNotFoundError:
+        st.info("The Spark results file was removed. Run the benchmark with Docker:")
+        st.code(
+            "docker compose --profile spark run --build --rm spark-benchmark",
+            language="powershell",
+        )
+        return
+    except pd.errors.EmptyDataError:
+        st.error("The Spark results file is empty. Run the benchmark again.")
+        return
+    except ValueError as error:
+        st.error(f"Could not read the Spark results file: {error}")
+        return
+
+    if "benchmark_id" not in runs.columns:
+        st.error("Spark results are missing benchmark IDs. Rerun the benchmark.")
+        return
+
     benchmark_ids = sorted(runs["benchmark_id"].dropna().unique())
     if not benchmark_ids:
-        st.error("Spark results are missing benchmark IDs. Rerun the benchmark.")
-        st.stop()
+        st.error("Spark results contain no benchmark IDs. Rerun the benchmark.")
+        return
+
     selected_benchmark = st.selectbox("Benchmark run", benchmark_ids)
     runs = runs[runs["benchmark_id"] == selected_benchmark]
+    required_columns = {"workload", "run", "elapsed_seconds"}
+    missing_columns = required_columns.difference(runs.columns)
+    if missing_columns:
+        st.error(
+            "Spark results are missing required fields: "
+            + ", ".join(sorted(missing_columns))
+        )
+        return
+
     st.caption(
         "Each run includes Spark/runtime metadata, the SQL fingerprint, the "
         "cache policy, and a result checksum."
@@ -66,6 +79,29 @@ if view == "Modern Spark runs":
         "Spark's in-memory cache; it does not flush operating-system or "
         "filesystem caches."
     )
+
+
+st.set_page_config(page_title="LakehouseBench", layout="wide")
+st.title("LakehouseBench")
+st.caption(
+    "Modern Spark SQL benchmark runner, with the original course results kept "
+    "separate as historical context."
+)
+
+view = st.radio(
+    "View",
+    ["Modern Spark runs", "Historical course results"],
+    horizontal=True,
+)
+
+if view == "Modern Spark runs":
+    result_path = Path(
+        os.environ.get(
+            "LAKEHOUSEBENCH_RESULTS",
+            str(PROJECT_ROOT / "results" / "spark-results.jsonl"),
+        )
+    )
+    render_spark_results(result_path)
 else:
     data_path = PROJECT_ROOT / "data" / "observations.csv"
     observations = load_observations(data_path)

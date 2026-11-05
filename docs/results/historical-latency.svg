@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="370" viewBox="0 0 1000 370" role="img">
+<title>Historical Hive, Impala and Pig query timings</title>
+<desc>Moderate and complex workload median timings on a logarithmic seconds axis.</desc>
+<style>text{font-family:Arial,sans-serif;fill:#253247} .grid{stroke:#dbe2ea}</style>
+<text x="20.0" y="29.0" font-size="19" text-anchor="start">Historical course results: moderate and complex</text>
+<text x="20.0" y="52.0" font-size="12" text-anchor="start">Median elapsed time in seconds (log scale); unlabelled units assumed to be seconds.</text>
+<rect x="190" y="67" width="12" height="12" fill="#1f77b4"/>
+<text x="208.0" y="78.0" font-size="12" text-anchor="start">Impala</text>
+<rect x="285" y="67" width="12" height="12" fill="#e67e22"/>
+<text x="303.0" y="78.0" font-size="12" text-anchor="start">Hive</text>
+<rect x="380" y="67" width="12" height="12" fill="#7f8c8d"/>
+<text x="398.0" y="78.0" font-size="12" text-anchor="start">Pig</text>
+<line class="grid" x1="190.0" y1="104" x2="190.0" y2="310"/>
+<text x="190.0" y="333.0" font-size="12" text-anchor="middle">0.1</text>
+<line class="grid" x1="380.0" y1="104" x2="380.0" y2="310"/>
+<text x="380.0" y="333.0" font-size="12" text-anchor="middle">1</text>
+<line class="grid" x1="570.0" y1="104" x2="570.0" y2="310"/>
+<text x="570.0" y="333.0" font-size="12" text-anchor="middle">10</text>
+<line class="grid" x1="760.0" y1="104" x2="760.0" y2="310"/>
+<text x="760.0" y="333.0" font-size="12" text-anchor="middle">100</text>
+<text x="178.0" y="128.0" font-size="14" text-anchor="end">Moderate</text>
+<rect x="190.0" y="127" width="66.73" height="12" rx="2" fill="#1f77b4"/>
+<text x="262.7" y="138.0" font-size="11" text-anchor="start">Impala: 0.2245s</text>
+<rect x="190.0" y="151" width="432.96" height="12" rx="2" fill="#e67e22"/>
+<text x="629.0" y="162.0" font-size="11" text-anchor="start">Hive: 19s</text>
+<rect x="190.0" y="175" width="494.39" height="12" rx="2" fill="#7f8c8d"/>
+<text x="690.4" y="186.0" font-size="11" text-anchor="start">Pig: 40s</text>
+<text x="178.0" y="224.0" font-size="14" text-anchor="end">Complex</text>
+<rect x="190.0" y="223" width="115.01" height="12" rx="2" fill="#1f77b4"/>
+<text x="311.0" y="234.0" font-size="11" text-anchor="start">Impala: 0.403s</text>
+<rect x="190.0" y="247" width="472.02" height="12" rx="2" fill="#e67e22"/>
+<text x="668.0" y="258.0" font-size="11" text-anchor="start">Hive: 30.5s</text>
+<rect x="190.0" y="271" width="553.12" height="12" rx="2" fill="#7f8c8d"/>
+<text x="749.1" y="282.0" font-size="11" text-anchor="start">Pig: 81.5s</text>
+<text x="475.0" y="360.0" font-size="12" text-anchor="middle">Elapsed seconds (logarithmic scale)</text>
+</svg>

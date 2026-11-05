@@ -9,7 +9,15 @@ from datetime import datetime, timezone
 from pathlib import Path
 from time import perf_counter
 
-from pyspark.sql import DataFrame, Row, SparkSession, functions as F
+try:
+    from pyspark.sql import DataFrame, Row, SparkSession, functions as F
+except ModuleNotFoundError as error:
+    if error.name != "pyspark":
+        raise
+    raise SystemExit(
+        "PySpark is provided by the benchmark Docker image. From the project "
+        "root, run: docker compose --profile spark run --build --rm spark-benchmark"
+    ) from error
 
 
 QUERIES = {

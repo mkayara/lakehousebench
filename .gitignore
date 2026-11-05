@@ -7,4 +7,5 @@ reports/*
 !reports/.gitkeep
 results/*
 !results/.gitkeep
+!results/spark-results.jsonl
 .streamlit/secrets.toml
