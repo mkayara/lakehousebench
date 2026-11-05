@@ -1,0 +1,30 @@
+services:
+  dashboard:
+    build: .
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data:ro
+      - ./results:/app/results:ro
+
+  spark-benchmark:
+    profiles: ["spark"]
+    build:
+      context: .
+      dockerfile: Dockerfile.spark
+    command:
+      - --master
+      - local[*]
+      - /opt/lakehousebench/benchmark.py
+      - --rows
+      - "${BENCHMARK_ROWS:-100000}"
+      - --warmups
+      - "${BENCHMARK_WARMUPS:-2}"
+      - --repetitions
+      - "${BENCHMARK_REPETITIONS:-10}"
+      - --cache-policy
+      - "${BENCHMARK_CACHE_POLICY:-uncached}"
+      - --output
+      - /app/results/spark-results.jsonl
+    volumes:
+      - ./results:/app/results

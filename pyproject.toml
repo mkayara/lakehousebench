@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lakehousebench"
+version = "0.1.0"
+description = "Spark SQL benchmarking with transparent historical engine comparisons"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.2,<4",
+    "streamlit>=1.40,<2",
+    "openpyxl>=3.1,<4",
+]
+
+[project.scripts]
+lakehousebench = "lakehousebench.cli:main"
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

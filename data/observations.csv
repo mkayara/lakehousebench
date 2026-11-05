@@ -1,0 +1,91 @@
+engine,workload,run,elapsed_value,source_unit,elapsed_seconds,unit_basis,source_workbook
+Hive,simple,1,0.843,ms,0.000843,"Source header says ms; converted literally; unit needs verification",Experiment Data - HIVE.xlsx
+Hive,simple,2,0.079,ms,0.000079,"Source header says ms; converted literally; unit needs verification",Experiment Data - HIVE.xlsx
+Hive,simple,3,0.076,ms,0.000076,"Source header says ms; converted literally; unit needs verification",Experiment Data - HIVE.xlsx
+Hive,simple,4,0.070,ms,0.000070,"Source header says ms; converted literally; unit needs verification",Experiment Data - HIVE.xlsx
+Hive,simple,5,0.069,ms,0.000069,"Source header says ms; converted literally; unit needs verification",Experiment Data - HIVE.xlsx
+Hive,simple,6,0.070,ms,0.000070,"Source header says ms; converted literally; unit needs verification",Experiment Data - HIVE.xlsx
+Hive,simple,7,0.068,ms,0.000068,"Source header says ms; converted literally; unit needs verification",Experiment Data - HIVE.xlsx
+Hive,simple,8,0.069,ms,0.000069,"Source header says ms; converted literally; unit needs verification",Experiment Data - HIVE.xlsx
+Hive,simple,9,0.069,ms,0.000069,"Source header says ms; converted literally; unit needs verification",Experiment Data - HIVE.xlsx
+Hive,simple,10,0.068,ms,0.000068,"Source header says ms; converted literally; unit needs verification",Experiment Data - HIVE.xlsx
+Hive,moderate,1,27,s,27,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,moderate,2,19,s,19,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,moderate,3,19,s,19,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,moderate,4,19,s,19,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,moderate,5,18,s,18,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,moderate,6,18,s,18,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,moderate,7,18,s,18,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,moderate,8,19,s,19,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,moderate,9,19,s,19,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,moderate,10,19,s,19,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,complex,1,43,s,43,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,complex,2,33,s,33,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,complex,3,31,s,31,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,complex,4,30,s,30,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,complex,5,30,s,30,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,complex,6,31,s,31,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,complex,7,31,s,31,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,complex,8,30,s,30,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,complex,9,30,s,30,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Hive,complex,10,30,s,30,"Summary worksheet explicitly labels execution time as seconds",Experiment Data - HIVE.xlsx
+Pig,simple,1,9.712,s,9.712,"Source header explicitly labels execution time as seconds",Experiment Data - PIG.xlsx
+Pig,simple,2,8.113,s,8.113,"Source header explicitly labels execution time as seconds",Experiment Data - PIG.xlsx
+Pig,simple,3,8.058,s,8.058,"Source header explicitly labels execution time as seconds",Experiment Data - PIG.xlsx
+Pig,simple,4,8.125,s,8.125,"Source header explicitly labels execution time as seconds",Experiment Data - PIG.xlsx
+Pig,simple,5,8.027,s,8.027,"Source header explicitly labels execution time as seconds",Experiment Data - PIG.xlsx
+Pig,simple,6,8.050,s,8.050,"Source header explicitly labels execution time as seconds",Experiment Data - PIG.xlsx
+Pig,simple,7,8.046,s,8.046,"Source header explicitly labels execution time as seconds",Experiment Data - PIG.xlsx
+Pig,simple,8,8.189,s,8.189,"Source header explicitly labels execution time as seconds",Experiment Data - PIG.xlsx
+Pig,simple,9,8.089,s,8.089,"Source header explicitly labels execution time as seconds",Experiment Data - PIG.xlsx
+Pig,simple,10,8.101,s,8.101,"Source header explicitly labels execution time as seconds",Experiment Data - PIG.xlsx
+Pig,moderate,1,40,s,40,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,moderate,2,40,s,40,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,moderate,3,38,s,38,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,moderate,4,40,s,40,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,moderate,5,40,s,40,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,moderate,6,39,s,39,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,moderate,7,41,s,41,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,moderate,8,39,s,39,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,moderate,9,42,s,42,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,moderate,10,41,s,41,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,complex,1,81,s,81,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,complex,2,80,s,80,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,complex,3,82,s,82,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,complex,4,78,s,78,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,complex,5,76,s,76,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,complex,6,82,s,82,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,complex,7,82,s,82,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,complex,8,84,s,84,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,complex,9,78,s,78,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Pig,complex,10,82,s,82,"Workbook omits units; seconds assumed for analysis",Experiment Data - PIG.xlsx
+Impala,simple,1,0.422,not stated,0.422,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,simple,2,0.171,not stated,0.171,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,simple,3,0.196,not stated,0.196,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,simple,4,0.196,not stated,0.196,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,simple,5,0.175,not stated,0.175,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,simple,6,0.210,not stated,0.210,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,simple,7,0.206,not stated,0.206,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,simple,8,0.202,not stated,0.202,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,simple,9,0.203,not stated,0.203,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,simple,10,0.184,not stated,0.184,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,moderate,1,0.217,not stated,0.217,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,moderate,2,0.217,not stated,0.217,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,moderate,3,0.220,not stated,0.220,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,moderate,4,0.227,not stated,0.227,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,moderate,5,0.228,not stated,0.228,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,moderate,6,0.240,not stated,0.240,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,moderate,7,0.222,not stated,0.222,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,moderate,8,0.216,not stated,0.216,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,moderate,9,0.373,not stated,0.373,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,moderate,10,0.317,not stated,0.317,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,complex,1,0.332,not stated,0.332,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,complex,2,0.323,not stated,0.323,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,complex,3,0.412,not stated,0.412,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,complex,4,0.413,not stated,0.413,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,complex,5,0.438,not stated,0.438,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,complex,6,0.396,not stated,0.396,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,complex,7,0.405,not stated,0.405,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,complex,8,0.411,not stated,0.411,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,complex,9,0.401,not stated,0.401,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx
+Impala,complex,10,0.349,not stated,0.349,"Workbook omits units; seconds assumed for analysis",Experiment Data - IMPALA.xlsx

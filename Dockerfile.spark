@@ -1,0 +1,9 @@
+FROM apache/spark:4.2.1-python3
+
+USER root
+COPY spark/benchmark.py /opt/lakehousebench/benchmark.py
+RUN mkdir -p /app/results && chown -R spark:spark /app/results
+USER spark
+
+ENTRYPOINT ["/opt/spark/bin/spark-submit"]
+CMD ["--master", "local[*]", "/opt/lakehousebench/benchmark.py", "--output", "/app/results/spark-results.jsonl"]
