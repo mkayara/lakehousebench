@@ -1,6 +1,6 @@
 # LakehouseBench
 
-[![CI](https://github.com/<your-username>/lakehousebench/actions/workflows/ci.yml/badge.svg)](https://github.com/<your-username>/lakehousebench/actions/workflows/ci.yml)
+[![CI](https://github.com/mkayara/lakehousebench/actions/workflows/ci.yml/badge.svg)](https://github.com/mkayara/lakehousebench/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white)
 ![Apache Spark](https://img.shields.io/badge/Apache%20Spark-4.2.1-E25A1C?logo=apachespark&logoColor=white)
 ![PySpark](https://img.shields.io/badge/benchmark-Spark%20SQL-E25A1C?logo=apachespark&logoColor=white)
