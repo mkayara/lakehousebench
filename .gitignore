@@ -9,3 +9,4 @@ results/*
 !results/.gitkeep
 !results/spark-results.jsonl
 .streamlit/secrets.toml
+/docs/LOCAL_PROJECT_FIELD_GUIDE.md
