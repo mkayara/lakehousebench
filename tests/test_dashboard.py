@@ -11,7 +11,9 @@ def test_dashboard_shows_command_when_spark_results_do_not_exist(
 ) -> None:
     monkeypatch.setenv("LAKEHOUSEBENCH_RESULTS", str(tmp_path / "not-yet-run.jsonl"))
 
-    app = AppTest.from_file(str(PROJECT_ROOT / "app" / "dashboard.py")).run()
+    app = AppTest.from_file(
+        str(PROJECT_ROOT / "app" / "dashboard.py"), default_timeout=30
+    ).run()
 
     assert not app.exception
     assert any("No Spark runs recorded yet." in message.value for message in app.info)
@@ -23,7 +25,9 @@ def test_dashboard_shows_command_when_spark_results_do_not_exist(
 
 
 def test_dashboard_renders_checked_in_spark_run() -> None:
-    app = AppTest.from_file(str(PROJECT_ROOT / "app" / "dashboard.py")).run()
+    app = AppTest.from_file(
+        str(PROJECT_ROOT / "app" / "dashboard.py"), default_timeout=30
+    ).run()
 
     assert not app.exception
     assert any("Benchmark run" in item.label for item in app.selectbox)

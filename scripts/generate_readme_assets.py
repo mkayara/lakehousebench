@@ -84,6 +84,29 @@ def render_spark_chart(records: list[dict], output: Path) -> None:
     output.write_text("\n".join(parts), encoding="utf-8")
 
 
+def select_spark_benchmark(
+    records: list[dict], benchmark_id: str | None = None
+) -> list[dict]:
+    if not records:
+        raise ValueError("No Spark benchmark records were provided.")
+    if "benchmark_id" not in records[0]:
+        raise ValueError("Spark records are missing benchmark IDs.")
+
+    if benchmark_id is None:
+        latest_record = max(
+            records,
+            key=lambda record: record.get("recorded_at_utc", ""),
+        )
+        benchmark_id = latest_record["benchmark_id"]
+
+    selected = [
+        record for record in records if record["benchmark_id"] == benchmark_id
+    ]
+    if not selected:
+        raise ValueError(f"No Spark benchmark found with ID {benchmark_id}.")
+    return selected
+
+
 def render_historical_chart(summary: pd.DataFrame, output: Path) -> None:
     selected = summary[summary["workload"].isin(["moderate", "complex"])].copy()
     if selected.empty:
@@ -153,6 +176,10 @@ def render_historical_chart(summary: pd.DataFrame, output: Path) -> None:
 def main() -> None:
     parser = argparse.ArgumentParser(description="Generate README benchmark charts.")
     parser.add_argument("--spark-results", type=Path, default=Path("results/spark-results.jsonl"))
+    parser.add_argument(
+        "--benchmark-id",
+        help="Choose a specific run; by default the newest recorded run is charted.",
+    )
     parser.add_argument("--historical-data", type=Path, default=Path("data/observations.csv"))
     parser.add_argument("--output-dir", type=Path, default=Path("docs/results"))
     args = parser.parse_args()
@@ -164,7 +191,8 @@ def main() -> None:
     ]
     observations = load_observations(args.historical_data)
     summary = summarize(observations)
-    render_spark_chart(records, args.output_dir / "spark-latency.svg")
+    selected_run = select_spark_benchmark(records, args.benchmark_id)
+    render_spark_chart(selected_run, args.output_dir / "spark-latency.svg")
     render_historical_chart(summary, args.output_dir / "historical-latency.svg")
     print(f"Wrote README charts to {args.output_dir}")
 

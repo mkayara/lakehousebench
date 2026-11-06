@@ -69,24 +69,31 @@ appended to [`results/spark-results.jsonl`](results/spark-results.jsonl).
 
 ## Current Spark result
 
-This checked-in run used **Spark 4.2.1**, `local[*]`, 100,000 generated
-Parquet rows, 2 warm-ups and 10 timed repetitions per workload, with Spark's
-in-memory cache disabled. It ran in a local Docker container under WSL2 with
-12 CPUs visible to the container and four shuffle partitions. These are local
-development-machine measurements, not cluster throughput claims.
+The charts and table report the **latest complete run** in the raw results
+file: `5b843873-1621-402f-b3f6-b03c3099c324`. It used **Spark 4.2.1**,
+`local[*]`, 100,000 generated Parquet rows, 2 warm-ups and 10 timed
+repetitions per workload, with Spark's in-memory cache disabled. It ran in a
+local Docker container under WSL2 with 12 CPUs visible to the container and
+four shuffle partitions. These are local development-machine measurements,
+not cluster throughput claims.
+
+The raw file also retains one earlier, separate 30-sample invocation. Results
+from the two runs are **not combined** in the table: both use the same setup,
+but the timing difference between invocations is useful evidence of
+machine-level/run-to-run variability.
 
 | Workload | Operation | Runs | Median (s) | P95 (s) | Min (s) | Max (s) |
 | --- | --- | ---: | ---: | ---: | ---: | ---: |
-| Simple | Filter and count | 10 | 0.487 | 0.614 | 0.423 | 0.615 |
-| Moderate | Group, aggregate and sort | 10 | 0.518 | 0.650 | 0.377 | 0.669 |
-| Complex | Join, filter, group and sort | 10 | 0.765 | 1.072 | 0.617 | 1.202 |
+| Simple | Filter and count | 10 | 0.354 | 0.443 | 0.300 | 0.462 |
+| Moderate | Group, aggregate and sort | 10 | 0.589 | 0.737 | 0.324 | 0.743 |
+| Complex | Join, filter, group and sort | 10 | 0.639 | 0.821 | 0.513 | 0.835 |
 
 ![Spark SQL workload latency: median bars and p95 markers](docs/results/spark-latency.svg)
 
-The join-and-aggregate query was slowest in this run. The spread between median
-and p95 is also visible, especially for that workload; the raw samples are
-committed so the chart and summary can be independently checked. This result is
-a demonstration of the harness, not proof that Spark is faster than another
+The join-and-aggregate query was slowest in this run. The range between median
+and p95 is also visible, especially for that workload. The raw samples are
+committed so the chart and summary can be independently checked. This result
+is a demonstration of the harness, not proof that Spark is faster than another
 engine.
 
 ## Historical course results
@@ -149,8 +156,10 @@ python scripts/generate_readme_assets.py
 ```
 
 The chart generator reads the committed raw Spark observations and historical
-CSV. The historical chart uses a logarithmic axis to keep the engines visible
-on the same plot; the unit caveats above still apply.
+CSV. It charts the newest recorded Spark run by default. To choose another
+invocation, pass `--benchmark-id <id>`. The historical chart uses a logarithmic
+axis to keep the engines visible on the same plot; the unit caveats above still
+apply.
 
 ## Project layout
 

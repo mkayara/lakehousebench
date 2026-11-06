@@ -13,15 +13,23 @@ def test_published_benchmark_has_ten_consistent_samples_per_workload() -> None:
         if line.strip()
     ]
 
-    assert len(records) == 30
-    assert {record["dataset_rows"] for record in records} == {100_000}
-    assert {record["warmups"] for record in records} == {2}
-    assert {record["cache_policy"] for record in records} == {"uncached"}
-    assert {record["spark_version"] for record in records} == {"4.2.1"}
-    assert len({record["benchmark_id"] for record in records}) == 1
+    benchmark_ids = {record["benchmark_id"] for record in records}
+    assert benchmark_ids
 
-    for workload in ("simple", "moderate", "complex"):
-        samples = [record for record in records if record["workload"] == workload]
-        assert len(samples) == 10
-        assert all(record["elapsed_seconds"] > 0 for record in samples)
-        assert len({record["result_sha256"] for record in samples}) == 1
+    for benchmark_id in benchmark_ids:
+        benchmark = [
+            record for record in records if record["benchmark_id"] == benchmark_id
+        ]
+        assert len(benchmark) == 30
+        assert {record["dataset_rows"] for record in benchmark} == {100_000}
+        assert {record["warmups"] for record in benchmark} == {2}
+        assert {record["cache_policy"] for record in benchmark} == {"uncached"}
+        assert {record["spark_version"] for record in benchmark} == {"4.2.1"}
+
+        for workload in ("simple", "moderate", "complex"):
+            samples = [
+                record for record in benchmark if record["workload"] == workload
+            ]
+            assert len(samples) == 10
+            assert all(record["elapsed_seconds"] > 0 for record in samples)
+            assert len({record["result_sha256"] for record in samples}) == 1

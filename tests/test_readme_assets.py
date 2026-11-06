@@ -3,6 +3,7 @@ import pandas as pd
 from scripts.generate_readme_assets import (
     render_historical_chart,
     render_spark_chart,
+    select_spark_benchmark,
 )
 
 
@@ -47,3 +48,13 @@ def test_historical_chart_explicitly_uses_log_scale(tmp_path) -> None:
     assert "log scale" in chart
     assert "Impala: 10s" in chart
     assert "Pig: 20s" in chart
+
+
+def test_select_spark_benchmark_defaults_to_latest_recorded_run() -> None:
+    records = [
+        {"benchmark_id": "older", "recorded_at_utc": "2026-01-01T00:00:00+00:00"},
+        {"benchmark_id": "newer", "recorded_at_utc": "2026-02-01T00:00:00+00:00"},
+    ]
+
+    assert select_spark_benchmark(records)[0]["benchmark_id"] == "newer"
+    assert select_spark_benchmark(records, "older")[0]["benchmark_id"] == "older"
